@@ -54,9 +54,9 @@ The final installed files in both consumers use source revision `6f552f4e9a7a273
 
 All independent preservation/content/hash/mode/link/inventory comparisons produced zero errors. No remaining introduced actionable bug was found in this integration.
 
-## Handoff limits
+## Handoff limits at the initial review
 
-Root reports Cashflow lint/typecheck passed and full offline suite finished 7,113 passed / 0 failed / 1 skipped. This reviewer did not rerun those checks. Root is resolving a Geddy large-inventory test timeout; actual full-suite and required latest-commit hosted CI results remain the delivery gate, not something this read-only review can mark passed.
+Root reports Cashflow lint/typecheck passed and full offline suite finished 7,113 passed / 0 failed / 1 skipped on the original installation commit, before the current-main merge. This reviewer did not rerun those checks. At the initial review, root was investigating a Geddy large-inventory test timeout. Its local timeout and subsequent complete hosted CI pass are recorded in [validation evidence](../validation.md); this read-only review does not substitute for required checks.
 
 Geddy's temporary test `node_modules` symlink is currently untracked because the directory-style ignore does not match a symlink; it must be excluded/removed before commit. Root was notified. This is a transient validation artifact, not an intended installation file.
 

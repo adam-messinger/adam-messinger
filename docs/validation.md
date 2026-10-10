@@ -44,8 +44,8 @@ managed-file refusals, all-consumer preflight, expected fetch/push remotes, unsa
 parent/file/manifest links, unrelated skills/settings/staging preservation,
 check-only tampering detection, export omissions, and I/O rollback.
 
-Installed source revision: `6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa` in both
-primary consumer checkouts and both clean installation PR worktrees.
+Verified installed source revision: `6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa`
+in both primary consumer checkouts and both clean installation PR worktrees.
 [Fresh actual committed checkouts](reviews/fresh-checkouts.json) had clean Git
 status, unchanged empty home, five exact regular files with matching hashes/modes,
 three resolving relative links recorded as Git mode 120000, identical manifests,
@@ -58,10 +58,12 @@ installation content, and Geddy public-plugin boundaries. The primary Cashflow
 untracked AGENTS.md remains byte-identical; unrelated primary work was excluded
 from the installation commits.
 
-Cashflow lint and TypeScript passed. The initial sandboxed test launch hit a tsx
-local IPC EPERM; the full suite outside that restriction passed **7,113 tests,
-zero failures, one skipped** (333.720s). Required hosted PostgreSQL, build/HTTP
-and aggregate CI checks remain in force.
+Cashflow lint and TypeScript passed on installation commit
+`efff215a24b1445d2fabe4fa0eeb72c1fbb46b65`, before the current-main merge. The initial
+sandboxed test launch hit a tsx local IPC EPERM; the full suite outside that
+restriction passed **7,113 tests, zero failures, one skipped** (333.720s).
+Latest-head validation after conflict resolution is recorded separately below.
+Required hosted PostgreSQL, build/HTTP and aggregate CI checks remain in force.
 
 Geddy typecheck, lint, and build passed; its built public-plugin tar includes only
 the research skill and no developer skills. Initial parallel offline tests hit
@@ -96,7 +98,19 @@ passed on the installed source commit and subsequent evidence commit.
 passed the complete typecheck, lint, build, and offline suite on its installed
 commit. Cashflow conflict resolution preserves the complete latest main guidance,
 received focused independent review, and passed all ten focused docs/identity tests.
-Its required hosted CI is checked on the conflict-resolved latest commit.
+Its [required hosted CI](https://github.com/adam-messinger/cashflow/actions/runs/38084654532)
+passed on that exact conflict-resolved commit: lint/typecheck/migration and schema
+checks, all four test shards, PostgreSQL contracts and built HTTP application,
+Turso build/HTTP checks, coverage aggregation, and the required aggregate `check`.
+Both consumers' Vercel previews passed. Production-deployment verification is
+correctly skipped for these PRs; no production deployment was invoked.
+[Recorded hosted results](reviews/hosted-ci.json) retain consumer head SHAs, run
+links, and job outcomes.
+
+After hosted checks completed, both clean task-created installation worktrees and
+their temporary dependency links were removed. Committed, pushed PR branches and
+the verified primary installations remain recoverable. Task-created CI watchers
+completed; unrelated branches, worktrees and primary work were preserved.
 
 ## Boundaries
 

@@ -1,0 +1,69 @@
+{
+  "verification_date": "2026-10-10",
+  "installed_source_revision": "6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa",
+  "consumer_ci": [
+    {
+      "conclusion": "success",
+      "headSha": "28d3741dd9085a165a346265dc4927b3b6575b31",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "check",
+          "status": "completed"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/adam-messinger/geddy/actions/runs/38084279773"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "fef42738caff5e9bbae831cd4c4e966c27c5a0e1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "lint + typecheck + migrations",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "PostgreSQL application",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "test (3/4)",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "build-artifacts",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "test (1/4)",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "test (4/4)",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "test (2/4)",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "check",
+          "status": "completed"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/adam-messinger/cashflow/actions/runs/38084654532"
+    }
+  ],
+  "production_deploy_checks": "Skipped on these installation PRs; no production deployment was invoked.",
+  "pull_requests": "Open and prepared for review, not merged."
+}
