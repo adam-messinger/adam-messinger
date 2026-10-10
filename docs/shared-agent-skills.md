@@ -131,13 +131,18 @@ mandatory full-file read appear first. Trusted local projects may raise the limi
 for example `codex -c project_doc_max_bytes=131072`; cloud project-config trust is
 not assumed. The instructions do not depend on a Mac home setting.
 
-[Claude memory docs](https://code.claude.com/docs/en/memory) describe direct
-`AGENTS.md` support since 2.1.277 when no applicable CLAUDE file exists, and the
-supported `CLAUDE.md` containing `@AGENTS.md` compatibility import. The retained
-shim handles older/configured hosts while keeping repository-specific rules in
-one `AGENTS.md`. Cashflow's entire current tracked guidance is preserved with file
-references updated and its instruction-reading tests migrated; the primary
-checkout's pre-existing untracked AGENTS remains untouched by this installation.
+[Claude memory docs](https://code.claude.com/docs/en/memory#remove-an-earlier-agentsmd-workaround)
+explicitly allow removing an import-only `CLAUDE.md`. These repositories use
+`AGENTS.md` directly, with no root compatibility shim. Direct loading requires
+Claude Code 2.1.277 or newer; use 2.1.281 or newer to avoid earlier provider and
+telemetry exceptions. Keep the AGENTS reader enabled and Project instructions at
+its default or “both” setting. A project/ancestor `CLAUDE.md`, `.claude/CLAUDE.md`,
+or `CLAUDE.local.md` suppresses default AGENTS loading; a global
+`~/.claude/CLAUDE.md` does not. Older runtimes or a first session after an upgrade
+may require upgrading/restarting or explicitly reading the repository's AGENTS
+file. Cashflow's entire tracked guidance is preserved with file references updated
+and its instruction-reading tests migrated; the primary checkout's pre-existing
+untracked AGENTS remains untouched by this installation.
 
 ## Cloud prerequisites and actual limits
 
@@ -147,6 +152,8 @@ make checked-in repository skills available; personal Mac skills are not synced.
 describe separate cloud runtime, network, setup, and credential configuration.
 Check out the installation commit or merge its PR into the configured branch.
 No startup fetch of this canonical repository is needed.
+The Claude cloud runtime must meet the same version and AGENTS-reader conditions
+above; the cloud documentation does not guarantee its installed version.
 
 Configure the intended GitHub repository and network access for GitHub API/source,
 package registries, and required deployment services. `api.github.com` may need an

@@ -14,7 +14,7 @@ No backlog task, issue closure, production write, or session archival is a test.
   verify the skills CLI's actual discovery/install/lock behavior separately.
 - Preserve repository guidance, existing unrelated work, private ignores, and
   Geddy's public research plugin. Keep applicable repository guidance in
-  `AGENTS.md` with a compatible Claude import shim.
+  `AGENTS.md`, read directly by current Claude Code and Codex.
 - Validate metadata, full installed trees, fresh checkouts with empty home,
   updater preservation/refusal behavior, official documentation, and independent
   decision simulations covering the requested failure and resume cases.
@@ -27,11 +27,11 @@ No backlog task, issue closure, production write, or session archival is a test.
    stdlib Python updater and meaningful installer tests, host compatibility docs,
    and independent review/simulation evidence. Commit and push this source first.
 2. Geddy installation PR from current `origin/main`: pinned real files and
-   relative links, narrow ignore exceptions, shared-skill guidance and Claude shim.
+   relative links, narrow ignore exceptions, and shared-skill guidance.
    Do not touch top-level public `skills/` or the unrelated active branch.
 3. Cashflow installation PR from current `origin/main`: same pinned files/links,
    narrow private ignores, move the full tracked `CLAUDE.md` instructions into
-   `AGENTS.md` and leave an import shim. Migrate docs-drift and identity-boundary
+   `AGENTS.md`. Migrate docs-drift and identity-boundary
    tests to read the authoritative file without weakening assertions. Add critical
    policy guidance before the large body to account for Codex's default 32KiB
    instruction budget. The primary checkout's pre-existing
@@ -46,6 +46,10 @@ disable follows verification in the primary checkouts and fresh PR checkouts.
 Consumer PRs depend on availability of the pushed source commit, not on a startup
 fetch. They are prepared for review; this installation request does not invoke
 `go`, merge these PRs, or close backlog issues.
+
+The initial implementation retained `@AGENTS.md` compatibility shims. The user's
+follow-up removes them after official verification of direct AGENTS support;
+the guide records current-version/configuration requirements for Claude hosts.
 
 ## Validation and rollout
 
