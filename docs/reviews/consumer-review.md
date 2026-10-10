@@ -60,4 +60,20 @@ Root reports Cashflow lint/typecheck passed and full offline suite finished 7,11
 
 Geddy's temporary test `node_modules` symlink is currently untracked because the directory-style ignore does not match a symlink; it must be excluded/removed before commit. Root was notified. This is a transient validation artifact, not an intended installation file.
 
-Consumer docs state obsolete matching globals were backed up outside discovery. Root must ensure this authorized cleanup is complete before final reporting; the reviewer did not perform or independently re-check global mutation. Git index link mode 120000 will be verified after root stages/commits; filesystem symlink types and exact targets are already verified.
+Consumer docs state obsolete matching globals were backed up outside discovery. Root must ensure this authorized cleanup is complete before final reporting; the reviewer did not perform or independently re-check global mutation. Git index link mode 120000 was independently verified in both committed consumers after the final focused review; filesystem symlink types and exact targets are also verified.
+
+## Focused review after current-main conflict resolution
+
+Reviewed Cashflow installation head `fef42738caff5e9bbae831cd4c4e966c27c5a0e1` against current origin/main `80046c5e4e3135c3b35a4855f2fe74c0a7e05e13`. Main had advanced with the equal-length account-name fix and write-once Blob store behavior while installation was in progress. Root merged current main, resolved CLAUDE consolidation by retaining the import shim, and rebuilt the AGENTS reference from the complete current-main CLAUDE body while preserving the existing shared policy header and Next.js block.
+
+Independent read-only comparisons confirm:
+
+- The AGENTS reference from `## Project Overview` through the original final `Not in Scope` paragraph is **byte-for-byte identical** to current `origin/main:CLAUDE.md`, including the new write-once Blob rule: same bytes resolve, other bytes under an existing key throw, replacement requires delete-then-put. Reference body SHA-256 is `f42d1c64684af84f0e41c4eb46d3bca747fc146da0f6791b7c36dc37d37f80cb`.
+- Every current-main instruction was retained. No applicable content was lost during conflict resolution, and the critical early production/manual-merge/validation policy remains intact.
+- `git diff origin/main...HEAD -- src` is empty: merged unrelated application behavior remains part of main, not the installation PR diff.
+- Installed five files, hashes/modes, provenance revision `6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa`, and all three link targets remain unchanged and valid.
+- Both consumer Git indexes record the three Claude links as mode **120000**, with matching link blobs in Cashflow and Geddy.
+- Primary Cashflow untracked AGENTS still hashes to `e930e745c79222ca44222b29043d1af62dd0e4f5ac45b197f663ed1c2db8cfe4`; unrelated local work remains preserved.
+- Cashflow worktree is clean. `git diff --check origin/main...HEAD` passes. Canonical-documentation test changes still preserve their original assertions; root reports all 10 focused docs/identity tests passed after the merge.
+
+**Conflict disposition: accepted. No remaining actionable preservation/integration finding or review blocker.** Actual full CI/deployment results are recorded by root separately; this focused read-only review does not substitute for required checks.

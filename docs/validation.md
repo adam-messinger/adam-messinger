@@ -86,11 +86,17 @@ Prepared PRs:
 - [Geddy installation #118](https://github.com/adam-messinger/geddy/pull/118),
   commit `28d3741dd9085a165a346265dc4927b3b6575b31`.
 - [Cashflow installation #1965](https://github.com/adam-messinger/cashflow/pull/1965),
-  commit `efff215a24b1445d2fabe4fa0eeb72c1fbb46b65`.
+  commit `fef42738caff5e9bbae831cd4c4e966c27c5a0e1` after resolving newer
+  main instruction changes without losing the write-once Blob guidance.
 
 PRs are prepared for review; this installation does not invoke go or merge them.
 Default-branch cloud activation requires consumer PR merge. Canonical source CI
-passed on the installed source commit; final consumer hosted CI is observed below.
+passed on the installed source commit and subsequent evidence commit.
+[Geddy required hosted CI](https://github.com/adam-messinger/geddy/actions/runs/38084279773)
+passed the complete typecheck, lint, build, and offline suite on its installed
+commit. Cashflow conflict resolution preserves the complete latest main guidance,
+received focused independent review, and passed all ten focused docs/identity tests.
+Its required hosted CI is checked on the conflict-resolved latest commit.
 
 ## Boundaries
 

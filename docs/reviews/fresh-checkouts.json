@@ -10,7 +10,7 @@
     },
     {
       "repository": "cashflow",
-      "revision": "efff215a24b1445d2fabe4fa0eeb72c1fbb46b65",
+      "revision": "fef42738caff5e9bbae831cd4c4e966c27c5a0e1",
       "clean": true,
       "git_symlinks_mode": "120000",
       "relative_links_resolve": true
