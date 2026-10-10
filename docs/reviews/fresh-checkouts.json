@@ -1,0 +1,23 @@
+{
+  "source_revision": "6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa",
+  "checkouts": [
+    {
+      "repository": "geddy",
+      "revision": "28d3741dd9085a165a346265dc4927b3b6575b31",
+      "clean": true,
+      "git_symlinks_mode": "120000",
+      "relative_links_resolve": true
+    },
+    {
+      "repository": "cashflow",
+      "revision": "efff215a24b1445d2fabe4fa0eeb72c1fbb46b65",
+      "clean": true,
+      "git_symlinks_mode": "120000",
+      "relative_links_resolve": true
+    }
+  ],
+  "empty_home_unmodified": true,
+  "identical_manifests": true,
+  "all_file_hashes_and_modes_verified": true,
+  "network_used": false
+}

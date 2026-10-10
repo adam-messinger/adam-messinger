@@ -44,10 +44,53 @@ managed-file refusals, all-consumer preflight, expected fetch/push remotes, unsa
 parent/file/manifest links, unrelated skills/settings/staging preservation,
 check-only tampering detection, export omissions, and I/O rollback.
 
-Final test counts, consumer check results, installation revision, fresh-checkout
-proof, review disposition, backup inventory, and PRs are recorded below after
-the ordinary installation validation finishes. Pending work is not recorded as
-passing evidence.
+Installed source revision: `6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa` in both
+primary consumer checkouts and both clean installation PR worktrees.
+[Fresh actual committed checkouts](reviews/fresh-checkouts.json) had clean Git
+status, unchanged empty home, five exact regular files with matching hashes/modes,
+three resolving relative links recorded as Git mode 120000, identical manifests,
+and no network. This proof used actual installation commits rather than only
+inert fixture packages.
+
+[Independent consumer review](reviews/consumer-review.md) accepted instruction
+preservation, active documentation/test migration, private ignores, exact
+installation content, and Geddy public-plugin boundaries. The primary Cashflow
+untracked AGENTS.md remains byte-identical; unrelated primary work was excluded
+from the installation commits.
+
+Cashflow lint and TypeScript passed. The initial sandboxed test launch hit a tsx
+local IPC EPERM; the full suite outside that restriction passed **7,113 tests,
+zero failures, one skipped** (333.720s). Required hosted PostgreSQL, build/HTTP
+and aggregate CI checks remain in force.
+
+Geddy typecheck, lint, and build passed; its built public-plugin tar includes only
+the research skill and no developer skills. Initial parallel offline tests hit
+four archive/PGlite timeouts. A serialized full rerun passed 1,725 tests with one
+existing 50,000-object restore test exceeding its unchanged 30s timeout. An isolated
+rerun of that file passed eight cases and again timed out on that large inventory.
+No Geddy `src/` or `tests/` file differs from the PR base, and the reused dependency
+versions match its lockfile. No test, assertion, or timeout was changed. This is a
+documented local validation failure; required hosted CI is checked independently.
+
+After both primary installations and fresh checkouts were verified, obsolete
+global Codex go/simplify/backlog-go and Claude go/simplify symlinks were moved to
+the recoverable backup at
+`/Users/adam/github/worktree-backups/shared-skills-2026-10-10`. Inventories record
+original paths, file hashes and link targets. Old same-name project go copies were
+separately copied/verified before replacement. Other global/project skills,
+credentials/settings, and unrelated work were preserved.
+
+Prepared PRs:
+
+- [Canonical source #1](https://github.com/adam-messinger/adam-messinger/pull/1).
+- [Geddy installation #118](https://github.com/adam-messinger/geddy/pull/118),
+  commit `28d3741dd9085a165a346265dc4927b3b6575b31`.
+- [Cashflow installation #1965](https://github.com/adam-messinger/cashflow/pull/1965),
+  commit `efff215a24b1445d2fabe4fa0eeb72c1fbb46b65`.
+
+PRs are prepared for review; this installation does not invoke go or merge them.
+Default-branch cloud activation requires consumer PR merge. Canonical source CI
+passed on the installed source commit; final consumer hosted CI is observed below.
 
 ## Boundaries
 
