@@ -86,31 +86,49 @@ Prepared PRs:
 
 - [Canonical source #1](https://github.com/adam-messinger/adam-messinger/pull/1).
 - [Geddy installation #118](https://github.com/adam-messinger/geddy/pull/118),
-  commit `28d3741dd9085a165a346265dc4927b3b6575b31`.
+  commit `784a01b7675a87aeb8360ddea1a005fd4cc7e167`.
 - [Cashflow installation #1965](https://github.com/adam-messinger/cashflow/pull/1965),
-  commit `fef42738caff5e9bbae831cd4c4e966c27c5a0e1` after resolving newer
+  commit `51827e73fd98c2b943802fdb19c210afbff49fa4` after resolving newer
   main instruction changes without losing the write-once Blob guidance.
 
 PRs are prepared for review; this installation does not invoke go or merge them.
 Default-branch cloud activation requires consumer PR merge. Canonical source CI
 passed on the installed source commit and subsequent evidence commit.
-[Geddy required hosted CI](https://github.com/adam-messinger/geddy/actions/runs/38084279773)
+[Geddy required hosted CI](https://github.com/adam-messinger/geddy/actions/runs/38085521672)
 passed the complete typecheck, lint, build, and offline suite on its installed
 commit. Cashflow conflict resolution preserves the complete latest main guidance,
 received focused independent review, and passed all ten focused docs/identity tests.
-Its [required hosted CI](https://github.com/adam-messinger/cashflow/actions/runs/38084654532)
-passed on that exact conflict-resolved commit: lint/typecheck/migration and schema
-checks, all four test shards, PostgreSQL contracts and built HTTP application,
-Turso build/HTTP checks, coverage aggregation, and the required aggregate `check`.
-Both consumers' Vercel previews passed. Production-deployment verification is
-correctly skipped for these PRs; no production deployment was invoked.
-[Recorded hosted results](reviews/hosted-ci.json) retain consumer head SHAs, run
-links, and job outcomes.
+Its original [hosted CI](https://github.com/adam-messinger/cashflow/actions/runs/38084654532)
+passed on conflict-resolved commit `fef42738caff5e9bbae831cd4c4e966c27c5a0e1`.
+Latest [required hosted CI](https://github.com/adam-messinger/cashflow/actions/runs/38085654605)
+passed on the follow-up head listed above: static/migration/schema checks, all
+four test shards, PostgreSQL contracts and built HTTP application, Turso
+build/HTTP checks, coverage aggregation, and the required aggregate `check`.
+Both consumers' Vercel previews passed. Production-deployment verification is correctly skipped for these PRs;
+no production deployment was invoked. Recorded hosted results retain consumer
+head SHAs, run links, and job outcomes in [the evidence summary](reviews/hosted-ci.json).
 
 After hosted checks completed, both clean task-created installation worktrees and
 their temporary dependency links were removed. Committed, pushed PR branches and
 the verified primary installations remain recoverable. Task-created CI watchers
 completed; unrelated branches, worktrees and primary work were preserved.
+
+## Follow-up: remove CLAUDE.md compatibility shims
+
+At the user's request, root CLAUDE.md shims were removed from all three PRs.
+Repository instructions remain solely in AGENTS.md. The source and both consumer
+AGENTS files are byte-for-byte unchanged from their preceding installation heads,
+as are all skill files, manifests, relative skill links, application source/tests,
+settings and hooks. The guide records current Claude version/reader conditions
+and cloud limits; no new home-directory dependency was introduced.
+
+Independent read-only review accepted all three removal heads without findings.
+All ten Cashflow focused docs/identity tests passed again on the follow-up head.
+Fresh actual committed empty-home checkouts verified the root shims are absent,
+AGENTS contents are preserved, installed content/hashes/modes remain identical,
+and the three Claude skill symlinks still resolve. The primary installations also
+passed pinned verification again. Both follow-up worktrees and disposable clones
+were cleaned up while retaining their pushed PR branches and unrelated work.
 
 ## Boundaries
 

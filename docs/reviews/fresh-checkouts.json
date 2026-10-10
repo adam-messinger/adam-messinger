@@ -3,17 +3,23 @@
   "checkouts": [
     {
       "repository": "geddy",
-      "revision": "28d3741dd9085a165a346265dc4927b3b6575b31",
+      "revision": "784a01b7675a87aeb8360ddea1a005fd4cc7e167",
       "clean": true,
       "git_symlinks_mode": "120000",
-      "relative_links_resolve": true
+      "relative_links_resolve": true,
+      "root_claude_shim_absent": true,
+      "agents_unchanged_from_prior_install": true,
+      "agents_sha256": "215f869e52e9b85e646a734735c51175f5fde7288e5e553143ab8e08b394c611"
     },
     {
       "repository": "cashflow",
-      "revision": "fef42738caff5e9bbae831cd4c4e966c27c5a0e1",
+      "revision": "51827e73fd98c2b943802fdb19c210afbff49fa4",
       "clean": true,
       "git_symlinks_mode": "120000",
-      "relative_links_resolve": true
+      "relative_links_resolve": true,
+      "root_claude_shim_absent": true,
+      "agents_unchanged_from_prior_install": true,
+      "agents_sha256": "ef6a594233af861e1150da82875e903cb550669291a0cba9c20ec53df0e7100b"
     }
   ],
   "empty_home_unmodified": true,

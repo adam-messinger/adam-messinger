@@ -77,3 +77,22 @@ Independent read-only comparisons confirm:
 - Cashflow worktree is clean. `git diff --check origin/main...HEAD` passes. Canonical-documentation test changes still preserve their original assertions; root reports all 10 focused docs/identity tests passed after the merge.
 
 **Conflict disposition: accepted. No remaining actionable preservation/integration finding or review blocker.** Actual full CI/deployment results are recorded by root separately; this focused read-only review does not substitute for required checks.
+
+## Follow-up: direct AGENTS loading without root shims
+
+The user requested removal of the CLAUDE.md compatibility files. Independent
+read-only review accepted source `b6ea4a55cef14750d111b56d610801b5b7a0a25a`, Geddy
+`784a01b7675a87aeb8360ddea1a005fd4cc7e167`, and Cashflow
+`51827e73fd98c2b943802fdb19c210afbff49fa4` with no material findings. Each removes
+only its root import shim and updates compatibility guidance. All AGENTS contents,
+skill files/manifests/relative links, application source/tests, settings and hooks
+are unchanged from the preceding installation heads. No workflow or backlog action
+was used in this review.
+
+The documentation matches [official direct-loading and removal guidance](https://code.claude.com/docs/en/memory#remove-an-earlier-agentsmd-workaround):
+Claude Code 2.1.277+ supports AGENTS directly, with 2.1.281+ avoiding earlier
+provider/telemetry exceptions; the reader must be enabled and Project instructions
+default or “both.” Project/ancestor CLAUDE variants suppress default loading;
+global ~/.claude/CLAUDE.md does not. Cloud hosts need the same conditions. A live
+cloud session was not tested. Fresh-checkout proof and latest-head CI results are
+recorded separately in [validation evidence](../validation.md).

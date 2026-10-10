@@ -4,7 +4,7 @@
   "consumer_ci": [
     {
       "conclusion": "success",
-      "headSha": "28d3741dd9085a165a346265dc4927b3b6575b31",
+      "headSha": "784a01b7675a87aeb8360ddea1a005fd4cc7e167",
       "jobs": [
         {
           "conclusion": "success",
@@ -13,11 +13,11 @@
         }
       ],
       "status": "completed",
-      "url": "https://github.com/adam-messinger/geddy/actions/runs/38084279773"
+      "url": "https://github.com/adam-messinger/geddy/actions/runs/38085521672"
     },
     {
       "conclusion": "success",
-      "headSha": "fef42738caff5e9bbae831cd4c4e966c27c5a0e1",
+      "headSha": "51827e73fd98c2b943802fdb19c210afbff49fa4",
       "jobs": [
         {
           "conclusion": "success",
@@ -26,7 +26,12 @@
         },
         {
           "conclusion": "success",
-          "name": "PostgreSQL application",
+          "name": "test (1/4)",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "test (2/4)",
           "status": "completed"
         },
         {
@@ -41,7 +46,7 @@
         },
         {
           "conclusion": "success",
-          "name": "test (1/4)",
+          "name": "PostgreSQL application",
           "status": "completed"
         },
         {
@@ -51,17 +56,12 @@
         },
         {
           "conclusion": "success",
-          "name": "test (2/4)",
-          "status": "completed"
-        },
-        {
-          "conclusion": "success",
           "name": "check",
           "status": "completed"
         }
       ],
       "status": "completed",
-      "url": "https://github.com/adam-messinger/cashflow/actions/runs/38084654532"
+      "url": "https://github.com/adam-messinger/cashflow/actions/runs/38085654605"
     }
   ],
   "production_deploy_checks": "Skipped on these installation PRs; no production deployment was invoked.",
