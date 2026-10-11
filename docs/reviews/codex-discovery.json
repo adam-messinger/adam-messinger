@@ -1,0 +1,25 @@
+{
+  "runtime": "Codex 0.153.4",
+  "method": "no-model app-server skills/list",
+  "errors": [],
+  "skills": [
+    {
+      "name": "go",
+      "description": "Inert go portability fixture; do not execute delivery tasks.",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "simplify",
+      "description": "Inert simplify portability fixture; do not execute delivery tasks.",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "triage-and-go",
+      "description": "Inert triage-and-go portability fixture; do not execute delivery tasks.",
+      "scope": "repo",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# Shared-skill portability evidence
+
+Verified 2026-10-10. Local runtimes: Codex CLI/Desktop 0.153.4; Claude Code 2.1.296; Node 22.23.3. Only inert fixtures and temporary caches were modified. No skill workflow, backlog task, issue closure, or cloud session was run.
+
+## Codex
+
+[Official skill documentation](https://learn.chatgpt.com/docs/build-skills) (the old `developers.openai.com/codex/skills/` URL redirects here): Codex discovers `.agents/skills` at the current directory and ancestor directories through the repository root. Skill folders may be symlinks. The required frontmatter is `name` and `description`; metadata is discovered first and full instructions load on use. Same-name skills are not merged; both may appear. Explicit CLI/IDE invocation uses `$go`, `$simplify`, and `$triage-and-go`, or `/skills` to select one. Current ChatGPT desktop skill selection uses `@`. A plain `/go` is not the documented Codex skill invocation syntax. Use an explicit repository file reference when selectors cannot disambiguate.
+
+[Official AGENTS.md documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md): instructions load before work, from root to working directory. Closer files take precedence. At each directory `AGENTS.override.md` wins over `AGENTS.md`, then configured fallback filenames. The default aggregate read limit is 32 KiB. Codex does not implicitly use `CLAUDE.md` as its standard instruction filename.
+
+[Official cloud-environment documentation](https://learn.chatgpt.com/docs/environments/cloud-environments): skills stored in the repository are available in cloud tasks; local personal skills are not synced. Connect the intended GitHub repository and prepare its dependencies/tests. Enable required network destinations and provide scoped service credentials separately. The package-manager network preset includes GitHub source hosts but not necessarily `api.github.com`; add that API host if using `gh`/REST. Credentials, merge rights, deployment access, and independent-review capability must be checked in the executing cloud task; checked-in prompts do not provide them. Browser/computer use is currently unavailable there. This task did not provision or test a live cloud environment.
+
+[Config basics](https://learn.chatgpt.com/docs/config-file/config-basic) and [configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference): project `.codex/config.toml` is supported only when the project is trusted. `project_doc_max_bytes` raises the instruction budget; a CLI override can be `codex -c project_doc_max_bytes=131072`. Cloud docs do not explicitly promise project-config trust/loading, so large AGENTS files still need an early instruction to read the whole document and a prominent mandatory-policy header. Do not claim a project setting alone solves all cloud cases.
+
+Actual no-model discovery test: an empty-home temporary fixture was queried through the installed app server's generated `skills/list` protocol. All three inert skills loaded with `scope: repo`, their `.agents/skills/<name>/SKILL.md` paths, and no metadata errors. Evidence: `/private/tmp/shared-skills-codex-discovery-result.json`. The app server created only its normal system-skill/state files under that temporary home.
+
+## Claude Code
+
+[Official skills documentation](https://code.claude.com/docs/en/skills): project `.claude/skills/<name>/SKILL.md` is discovered; `<name>` may be a symlinked directory, and Claude reads its target. `/go <task>`, `/simplify [target]`, and `/triage-and-go` are native invocations when these project skills are loaded. Enterprise skills override personal skills, which override project skills. Project skills override same-name bundled commands. Plugins use qualified names. Thus obsolete same-name personal skills must be disabled, and go should explicitly read the shared project `simplify/SKILL.md` before using it. Cloud sessions load committed project skills, while the Mac's personal skill directory is not read. The documentation supports the committed relative-link layout; a live cloud discovery test was not performed.
+
+[Official memory documentation](https://code.claude.com/docs/en/memory#when-claude-code-reads-agentsmd): since v2.1.277 Claude reads `AGENTS.md` directly when no project/ancestor `CLAUDE.md`, `.claude/CLAUDE.md`, or `CLAUDE.local.md` exists. Use v2.1.281 or newer to avoid earlier provider/telemetry exceptions; the verified local runtime is 2.1.296. A global `~/.claude/CLAUDE.md` does not suppress project AGENTS loading. Keep the AGENTS reader enabled and Project instructions at its default or “both” setting. Some first sessions after an upgrade can lack support. [The official removal guidance](https://code.claude.com/docs/en/memory#remove-an-earlier-agentsmd-workaround) explicitly permits deleting an import-only `CLAUDE.md`; the source and consumer PRs remove their shims at the user's request and retain all repository instructions in AGENTS. Check those same conditions in cloud runtimes; no live cloud session was tested.
+
+[Official commands reference](https://code.claude.com/docs/en/commands) documents Claude's bundled `/simplify` as a separate skill using four cleanup agents (reuse, simplicity, efficiency, abstraction). It is not the published `code-simplifier` agent prompt. The shared adaptation should not imply it supplies that bundled orchestration or require a fixed reviewer count.
+
+[Official cloud guidance](https://code.claude.com/docs/en/claude-code-on-the-web): cloud runs use separate environments controlling network, variables, and setup scripts. GitHub connectivity provides clone/push access according to granted scopes, not arbitrary merge or production rights. The runtime and instructions support must be verified in a cloud session. This task did not change cloud configuration.
+
+## Installer: actual behavior, not assumed pinning
+
+Current official release on 2026-10-10: `skills@1.7.2`, released 2026-10-09, Git revision `bc7742451b64f2c2460a2c2c4289cdda03b9a08e`. Current main was `13e4063a1cf913f5606d57d42ab83a86f5001e04`. The pre-existing Mac cache contained 1.7.1; tests instead used 1.7.2 downloaded into `/private/tmp/shared-skills-cli-cache`.
+
+Immutable official source: [README](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/README.md), [local lock](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/src/local-lock.ts), [restore command](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/src/install.ts), [installer](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/src/installer.ts), [source parser](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/src/source-parser.ts), [Git ref handling](https://github.com/vercel-labs/skills/blob/bc7742451b64f2c2460a2c2c4289cdda03b9a08e/src/git.ts). These were fetched with GitHub API at that SHA into `/private/tmp/shared-skills-cli-source`.
+
+Exact tested install arguments from each consumer root:
+
+```sh
+npx --yes skills@1.7.2 add <local-source-at-selected-commit> --skill go simplify triage-and-go --agent codex claude-code --yes
+```
+
+Do not add `--global`, `--all`, or `--copy`. Default multi-agent symlink mode copies real canonical files into `.agents/skills/<name>` and creates exactly `../../.agents/skills/<name>` links in `.claude/skills`. Installing only one agent can switch the CLI to copy mode; explicitly request both.
+
+The isolated empty-home test installed all three inert fixtures with byte equality and correct relative links; the installer did not write any global/home file. Local-source project lock entries recorded `source: ../source`, `sourceType: local`, and `computedHash`, with no source Git revision. After changing source `go/SKILL.md`, `experimental_install` accepted the changed content and rewrote its hash. It restores only canonical universal-agent directories, so it also does not recreate Claude links from lock metadata. Evidence: `/private/tmp/shared-skills-cli-fixture-result.json`.
+
+Consequences: commit the installed files and symlinks so skill use needs no installer/startup network. Record the canonical source Git SHA and per-skill hashes in a separate tracked provenance manifest. Update both consumers from one immutable source checkout/archive selected by a full SHA, then verify exact installed content/link targets and preserve unrelated lock entries. CLI remote inputs support a `#<ref>` suffix; explicitly supplying a full SHA can record it in `ref`, but installing from an unpinned branch/tag or local path does not establish a resolved-commit guarantee. Do not describe `computedHash` as immutable restoration enforcement.
+
+Initial research recommendation (implementation uses an offline stdlib copier instead): a canonical-repository updater taking a full source commit plus both consumer paths, validating remotes, exporting that commit once, and invoking the pinned CLI above for each consumer. Repeat the same source SHA for both installations. The parent task is implementing and documenting that updater.
+
+The final updater uses the same verified layout without a runtime Node/CLI dependency, reading `git archive` at a full commit SHA and maintaining explicit file hashes, Git executable modes, and relative-link provenance. This avoids unstable local-source CLI locks while the CLI remains the discovery/compatibility test.

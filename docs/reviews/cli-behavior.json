@@ -1,0 +1,65 @@
+{
+  "lock_before": {
+    "version": 1,
+    "skills": {
+      "go": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "7c4eaa6311176036ff596cc322d04ce656891d576b5629ba6af935aee8ec952a"
+      },
+      "simplify": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "58b0929663e9d2edec2369877c972e76a976bf5b616f59cf2e0d156919289df6"
+      },
+      "triage-and-go": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "694361ddf99943bdb7bc6d5f9ee990bbf1555e1773fd324c38b0e737089662ec"
+      }
+    }
+  },
+  "lock_after": {
+    "version": 1,
+    "skills": {
+      "go": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "57b0e2a0b4bb14ea320a5084fa600768efef4c5afe2234c93da0cb4c371f7638"
+      },
+      "simplify": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "58b0929663e9d2edec2369877c972e76a976bf5b616f59cf2e0d156919289df6"
+      },
+      "triage-and-go": {
+        "source": "../source",
+        "sourceType": "local",
+        "computedHash": "694361ddf99943bdb7bc6d5f9ee990bbf1555e1773fd324c38b0e737089662ec"
+      }
+    }
+  },
+  "restored_go_changed_to_current_source": true,
+  "empty_home_files": [],
+  "installer_version": "1.7.2",
+  "layout": {
+    "go": {
+      "real_files": true,
+      "claude_link": "../../.agents/skills/go",
+      "equal": true
+    },
+    "simplify": {
+      "real_files": true,
+      "claude_link": "../../.agents/skills/simplify",
+      "equal": true
+    },
+    "triage-and-go": {
+      "real_files": true,
+      "claude_link": "../../.agents/skills/triage-and-go",
+      "equal": true
+    }
+  },
+  "install_exit": 0,
+  "restore_exit": 0,
+  "source_revision": "bc7742451b64f2c2460a2c2c4289cdda03b9a08e"
+}

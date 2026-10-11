@@ -1,0 +1,29 @@
+{
+  "source_revision": "6f552f4e9a7a2734e2c1b19dc6e9c5b9fed523aa",
+  "checkouts": [
+    {
+      "repository": "geddy",
+      "revision": "784a01b7675a87aeb8360ddea1a005fd4cc7e167",
+      "clean": true,
+      "git_symlinks_mode": "120000",
+      "relative_links_resolve": true,
+      "root_claude_shim_absent": true,
+      "agents_unchanged_from_prior_install": true,
+      "agents_sha256": "215f869e52e9b85e646a734735c51175f5fde7288e5e553143ab8e08b394c611"
+    },
+    {
+      "repository": "cashflow",
+      "revision": "51827e73fd98c2b943802fdb19c210afbff49fa4",
+      "clean": true,
+      "git_symlinks_mode": "120000",
+      "relative_links_resolve": true,
+      "root_claude_shim_absent": true,
+      "agents_unchanged_from_prior_install": true,
+      "agents_sha256": "ef6a594233af861e1150da82875e903cb550669291a0cba9c20ec53df0e7100b"
+    }
+  ],
+  "empty_home_unmodified": true,
+  "identical_manifests": true,
+  "all_file_hashes_and_modes_verified": true,
+  "network_used": false
+}
